@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ accion }} Tarea{% endblock %}
+
+{% block content %}
+    <h2>{{ accion }} tarea</h2>
+    <form method="POST" class="form-tarea">
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo" name="titulo" required
+               value="{{ tarea.titulo if tarea else '' }}">
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" name="descripcion" rows="4">{{ tarea.descripcion if tarea else '' }}</textarea>
+
+        <label class="checkbox">
+            <input type="checkbox" name="completada" {% if tarea and tarea.completada %}checked{% endif %}>
+            Completada
+        </label>
+
+        <div class="form-acciones">
+            <button type="submit" class="btn btn-guardar">Guardar</button>
+            <a href="{{ url_for('index') }}" class="btn btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}

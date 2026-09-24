@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 2rem;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+h1 { margin-top: 0; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.6rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+th { background: #f0f2f5; }
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #fff;
+}
+.badge.ok { background: #2e7d32; }
+.badge.pendiente { background: #e0a800; }
+
+.btn {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-nueva { background: #1565c0; color: #fff; margin-bottom: 1rem; }
+.btn-editar { background: #ffb300; color: #222; }
+.btn-eliminar { background: #d32f2f; color: #fff; }
+.btn-guardar { background: #2e7d32; color: #fff; }
+.btn-cancelar { background: #999; color: #fff; }
+
+.acciones .btn { margin-right: 0.4rem; }
+
+.form-tarea {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-top: 1rem;
+}
+
+.form-tarea label { margin-top: 1rem; font-weight: bold; }
+.form-tarea input[type=text], .form-tarea textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 0.3rem;
+}
+
+.checkbox { display: flex; align-items: center; gap: 0.5rem; font-weight: normal !important; }
+
+.form-acciones { margin-top: 1.5rem; display: flex; gap: 0.6rem; }
+
+.vacio { color: #777; margin-top: 1.5rem; }
+
+.flash {
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+.flash.success { background: #e6f4ea; color: #256029; }
+.flash.error { background: #fdecea; color: #a12622; }

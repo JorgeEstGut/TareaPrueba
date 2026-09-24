@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Lista de Tareas{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('crear_tarea') }}" class="btn btn-nueva">+ Nueva tarea</a>
+
+    {% if tareas %}
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Creada</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarea in tareas %}
+            <tr>
+                <td>{{ tarea.titulo }}</td>
+                <td>{{ tarea.descripcion or "-" }}</td>
+                <td>
+                    {% if tarea.completada %}
+                        <span class="badge ok">Completada</span>
+                    {% else %}
+                        <span class="badge pendiente">Pendiente</span>
+                    {% endif %}
+                </td>
+                <td>{{ tarea.fecha_creacion.strftime("%Y-%m-%d %H:%M") }}</td>
+                <td class="acciones">
+                    <a href="{{ url_for('editar_tarea', id=tarea.id) }}" class="btn btn-editar">Editar</a>
+                    <form action="{{ url_for('eliminar_tarea', id=tarea.id) }}" method="POST" onsubmit="return confirm('¿Eliminar esta tarea?');" style="display:inline;">
+                        <button type="submit" class="btn btn-eliminar">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p class="vacio">No hay tareas registradas todavía.</p>
+    {% endif %}
+{% endblock %}
